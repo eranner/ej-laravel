@@ -1,7 +1,7 @@
 
 @include("partials.header")
 @include("partials.navbar")
-@include("partials.hero")
+{{-- @include("partials.hero") --}}
 
     <div class="redSection">
         <div class="section2">

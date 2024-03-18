@@ -27,11 +27,10 @@ class SuccessController extends Controller
             'inquiry' => $request->input('inquiry'),
         ];
 
-        // Send email using Laravel's Mail facade and ContactFormMail Mailable class
         try {
             // Send email using Laravel's Mail facade and ContactFormMail Mailable class
             Mail::to($to)->send(new ContactFormMail($data));
-        return view('success');
+            return view('success');
 
         } catch (\Exception $e) {
             // Handle email sending failure
