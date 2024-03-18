@@ -5,7 +5,6 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-
 class ContactFormMail extends Mailable
 {
     use Queueable, SerializesModels;
@@ -20,6 +19,6 @@ class ContactFormMail extends Mailable
     public function build()
     {
         return $this->subject('EJ Web Design Inquiry')
-                    ->view('emails.contact_form'); // Blade template for your email content
+                    ->view('emails.contact_form');
     }
 }

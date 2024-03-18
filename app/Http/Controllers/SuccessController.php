@@ -1,5 +1,6 @@
 <?php
 
+// SuccessController.php
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -19,14 +20,23 @@ class SuccessController extends Controller
             }
         }
 
-        $clientName = $request->input('first_and_last');
-        $clientEmail = $request->input('contactEmail');
-        $clientPhone = $request->input('phone_number');
-        $inquiry = $request->input('inquiry');
+        $data = [
+            'clientName' => $request->input('first_and_last'),
+            'clientEmail' => $request->input('contactEmail'),
+            'clientPhone' => $request->input('phone_number'),
+            'inquiry' => $request->input('inquiry'),
+        ];
 
         // Send email using Laravel's Mail facade and ContactFormMail Mailable class
-        Mail::to($to)->send(new ContactFormMail($clientName, $clientEmail, $clientPhone, $inquiry));
-
+        try {
+            // Send email using Laravel's Mail facade and ContactFormMail Mailable class
+            Mail::to($to)->send(new ContactFormMail($data));
         return view('success');
+
+        } catch (\Exception $e) {
+            // Handle email sending failure
+            return redirect()->back()->with('error', 'Failed to send email. Please try again later.');
+        }
+
     }
 }
