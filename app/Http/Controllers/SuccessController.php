@@ -11,6 +11,10 @@ class SuccessController extends Controller
 {
     public function loadSuccess(Request $request)
     {
+        if(!empty($request->input('address'))){
+            redirect()->route('contact');
+            exit;
+        }
         $to = ['eranner@gmail.com', 'link15645@yahoo.com'];
 
         foreach ($to as $email) {

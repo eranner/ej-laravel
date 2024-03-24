@@ -26,7 +26,9 @@
                         <div class="mb-3 row">
                             <label for="exampleFormControlTextarea1" class="form-label" >Brief Details About Your Project</label>
                             <textarea class="form-control" id="inquiry" name="inquiry" rows="5" style="font-size: 1.5rem;" required></textarea>
+                            <input type="text" name='address' style="background-color: transparent; border: none; height: max-height: 10px; padding: 0!important; margin: 0!important; font-size: .1rem!important;">
                         </div>
+
                         <div class="col-auto">
                             <button type="submit" class="btn btn-primary mb-3" style="background-color: #11143e!important;font-size: 1.5rem;border: 1px solid white!important;">Submit</button>
                         </div>
